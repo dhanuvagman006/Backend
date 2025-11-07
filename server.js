@@ -72,12 +72,13 @@ if (!process.env.MONGO_URI) {
 }
 
 const client = new MongoClient(process.env.MONGO_URI, {
-  ssl: true,
-  sslValidate: true,
+  tls: true,
+  tlsAllowInvalidCertificates: false,
   retryWrites: true,
   w: "majority",
   serverSelectionTimeoutMS: 10000,
 });
+
 
 
 const app = express();
