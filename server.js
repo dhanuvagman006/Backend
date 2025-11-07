@@ -1,4 +1,9 @@
 const express = require("express");
+// const tls = require('tls');
+// tls.DEFAULT_MIN_VERSION = 'TLSv1.2';
+// tls.DEFAULT_MAX_VERSION = 'TLSv1.2';
+// console.log('OpenSSL:', process.versions.openssl, 'TLS range:', tls.DEFAULT_MIN_VERSION, '→', tls.DEFAULT_MAX_VERSION);
+
 const { MongoClient, ObjectId } = require("mongodb");
 const cors = require("cors");
 // const cacheMiddleware = require("./middleware/cacheMiddleware");
@@ -68,7 +73,7 @@ if (!process.env.MONGO_URI) {
 
 const client = new MongoClient(process.env.MONGO_URI, {
   tls: true,
-  tlsAllowInvalidCertificates: true,
+  tlsInsecure: true,
   serverSelectionTimeoutMS: 10000,
 });
 
