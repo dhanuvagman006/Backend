@@ -1,26 +1,24 @@
 services:
-	- type: web
-		name: backend
-		env: node
-		plan: free
-		autoDeploy: true
-		healthCheckPath: /
-		buildCommand: npm install
-		startCommand: npm start
-		envVars:
-			- key: NODE_ENV
-				value: production
-			- key: NODE_VERSION
-				value: "20"
-			- key: MONGO_URI
-				sync: false
-			- key: EMAIL_HOST
-				sync: false
-			- key: EMAIL_PORT
-				sync: false
-			- key: EMAIL_USER
-				sync: false
-			- key: EMAIL_PASS
-				sync: false
-			- key: EMAIL_FROM
-				sync: false
+  - type: web
+    name: backend
+    env: node
+    plan: free
+    autoDeploy: true
+    healthCheckPath: /
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: MONGO_URI
+        value: mongodb+srv://dhanuvagman69_db_user:NMwqCdmAoXB6b9kA@cluster0.q5pjqrp.mongodb.net/
+      - key: EMAIL_HOST
+        value: smtp.gmail.com
+      - key: EMAIL_PORT
+        value: 587
+      - key: EMAIL_USER
+        value: dhanuvagman69@gmail.com
+      - key: EMAIL_PASS
+        value: wkci slit hjgf aadp
+      - key: EMAIL_FROM
+        value: "Nordic Retail System"
+      - key: PORT
+        value: 5000
